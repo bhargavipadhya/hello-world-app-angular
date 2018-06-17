@@ -1,0 +1,7 @@
+<ul class='list-inline'>
+  <li class='list-inline-item'>
+    <a *ngFor='let topic of topics' routerLink='/course/{{courseId}}/module/{{moduleId}}/lesson/{{lessonId}}/topic/{{topic.id}}' class="badge badge-primary wbdv">{{topic.title}}</a> &emsp;
+  </li>
+</ul>
+
+<app-widget-list></app-widget-list>

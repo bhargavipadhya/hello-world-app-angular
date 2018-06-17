@@ -1,0 +1,12 @@
+<p>
+ {{message}}
+</p>
+
+<ul class='list'>
+  <li *ngFor='let course of courses' class='list-item' style=''>
+    {{course.title}}
+    <button (click)='deleteCourse(course.id)'>Delete</button>
+  </li>
+</ul>
+<input [(ngModel)] = 'courseTitle'/>
+<button (click)='addCourse(courseTitle)'>Add Course</button>

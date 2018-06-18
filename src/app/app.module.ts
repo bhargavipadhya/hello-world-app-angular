@@ -23,6 +23,8 @@ import { WidgetListComponent } from './widget-list/widget-list.component';
 import {WidgetServiceClient} from './services/widget.service.client';
 import { ProfileComponent } from './profile/profile.component';
 import {UserServiceClient} from './services/user.service.client';
+import { SectionListComponent } from './section-list/section-list.component';
+import {SectionServiceClient} from './services/section.service.client';
 
 
 @NgModule({
@@ -39,13 +41,21 @@ import {UserServiceClient} from './services/user.service.client';
     RegisterComponent,
     TopicPillsComponent,
     WidgetListComponent,
-    ProfileComponent
+    ProfileComponent,
+    SectionListComponent
   ],
   imports: [
     BrowserModule,
     FormsModule, routing
   ],
-  providers: [CourseNavigatorServiceClient, CourseServiceClient, ModuleServiceClient, LessonServiceClient, TopicServiceClient, WidgetServiceClient, UserServiceClient],
+  providers: [CourseNavigatorServiceClient,
+    CourseServiceClient,
+    ModuleServiceClient,
+    LessonServiceClient,
+    TopicServiceClient,
+    WidgetServiceClient,
+    UserServiceClient,
+    SectionServiceClient],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

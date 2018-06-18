@@ -1,0 +1,24 @@
+<div class='container-fluid'>
+  <h1>Sections for Course {{courseId}}</h1>
+
+  <input placeholder='Enter Section Name'
+          [(ngModel)]="sectionName"
+  class="form-control"/><br/>
+
+  <input placeholder='Seats Available'
+         [(ngModel)]="seats"
+         class="form-control"/><br/>
+
+  <button class="btn btn-success btn-block" (click)="createSection(seats, sectionName)">Add Section</button>
+
+  <br/>
+
+  <h5> Sections Available: </h5>
+  <ul class="list-group">
+    <li *ngFor="let section of sections" class="list-group-item">
+      {{section.sectionName}} [Seats Available: {{section.seats}}]
+      <button class="btn btn-outline-success float-right">Enroll</button>
+    </li>
+  </ul>
+
+</div>

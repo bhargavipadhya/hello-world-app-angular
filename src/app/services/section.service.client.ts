@@ -14,9 +14,25 @@ export class SectionServiceClient{
     });
   }
 
+  findSectionsForStudent(){
+    const url = 'http://localhost:3000/api/student/section';
+    return fetch(url, {
+      credentials: 'include'
+    })
+      .then(response => response.json());
+  }
+
   findSectionsForCourse(courseId){
     return fetch(this.SECTION_URL.replace('CID',courseId))
       .then(response => response.json());
+  }
+
+  enrollStudentInSection(sectionId){
+    const section_url = 'http://localhost:3000/api/section/' + sectionId + '/enrollment';
+    return fetch(section_url, {
+      method: 'post',
+      credentials: 'include'
+    });
   }
 
 }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {UserServiceClient} from '../services/user.service.client';
 import {User} from '../models/user.model.client';
 import {Router} from '@angular/router';
+import {SectionServiceClient} from '../services/section.service.client';
 
 @Component({
   selector: 'app-profile',
@@ -10,10 +11,13 @@ import {Router} from '@angular/router';
 })
 export class ProfileComponent implements OnInit {
 
-  constructor(private service: UserServiceClient, private router: Router) { }
+  constructor(private service: UserServiceClient,
+              private router: Router,
+              private sectionService: SectionServiceClient) { }
 
   user={};
   username;
+  sections =[];
   update(user){
     console.log(user);
   }
@@ -27,6 +31,9 @@ export class ProfileComponent implements OnInit {
     this.service
       .profile()
       .then(user => this.username = user.username);
+
+    this.sectionService.findSectionsForStudent()
+      .then(sections=> this.sections = sections);
   }
 
 }

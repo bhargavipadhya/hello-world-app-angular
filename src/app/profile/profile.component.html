@@ -19,6 +19,15 @@
 
   <button (click)="update()"  class="btn btn-primary btn-block">Update</button>
 
+  <h2>Sections [{{sections.length}}]</h2>
+
+  <ul class="list-group">
+    <li *ngFor="let enrollment of sections" class="list-group-item">
+      {{enrollment.section.sectionName}} [Seats Available: {{enrollment.section.seats}}]
+      <!--{{enrollment.sectionName}} [Seats Available: {{enrollment.seats}}]-->
+    </li>
+  </ul>
+
   <a (click)="logout()">Logout</a>
   <a routerLink="/home">Home</a>
 

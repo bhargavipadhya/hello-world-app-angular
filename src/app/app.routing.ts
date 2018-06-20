@@ -5,6 +5,7 @@ import {LoginComponent} from './login/login.component';
 import {RegisterComponent} from './register/register.component';
 import {ProfileComponent} from './profile/profile.component';
 import {SectionListComponent} from './section-list/section-list.component';
+import {AdminPageComponent} from './admin-page/admin-page.component';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -19,6 +20,7 @@ const appRoutes: Routes = [
   {path: 'register', component: RegisterComponent},
   {path: 'profile', component: ProfileComponent},
   {path: 'course/:courseId/section', component: SectionListComponent},
+  {path: 'admin-page', component: AdminPageComponent},
   {path: '**', component: WhiteBoardComponent}
 ];
 

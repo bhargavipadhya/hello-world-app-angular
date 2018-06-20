@@ -9,17 +9,13 @@ import {UserServiceClient} from '../services/user.service.client';
 })
 export class RegisterComponent implements OnInit {
 
+  constructor(private route: Router, private service: UserServiceClient) { }
+
   username;
   password;
-  cpassword;
-  register(username, password, cpassword){
-    console.log([username, password, cpassword]);
+  register(username, password){
     this.service.createUser(username, password)
-      .then(()=> this.route.navigate(['profile']))
-
-  }
-  constructor(private route: Router, private service: UserServiceClient) {
-
+      .then(()=> this.route.navigate(['profile']));
   }
 
   ngOnInit() {

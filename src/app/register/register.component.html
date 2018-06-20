@@ -1,33 +1,41 @@
 <div class='container-fluid'>
-  <h1>Register</h1>
 
-  <input [(ngModel)] = 'username'
-         placeholder='username'
-         class='form-control'/>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="navbar fixed-top navbar-light bg-light">
+      <a class="navbar-brand" routerLink="/home"><b>White Board</b></a>
+      <ul class="navbar-nav float-right">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/home">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink='/login'>Login</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
 
-  <input [(ngModel)] = 'password'
-         placeholder='password'
-         class='form-control'/>
+  <div class="wbdv-topMargin">
+    <fieldset>
+      <legend>Register</legend>
+      <input [(ngModel)] = 'username'
+             placeholder='Username'
+             class='form-control'/><br/>
 
-  <input [(ngModel)] = 'cpassword'
-         placeholder='Confirm password'
-         class='form-control'/>
+      <input [(ngModel)] = 'password'
+             placeholder='Password'
+             class='form-control'
+             type='password'/><br/>
 
-  <!--<input [(ngModel)] = 'firstName'-->
-         <!--placeholder='First Name'-->
-         <!--class='form-control'/>-->
+      <input [(ngModel)] = 'cpassword'
+             placeholder='Confirm Password'
+             class='form-control'
+             type='password'/><br/>
 
-  <!--<input [(ngModel)] = 'lastName'-->
-         <!--placeholder='Last Name'-->
-         <!--class='form-control'/>-->
+      <button (click)="register(username,password)" class="btn btn-primary btn-block">Register</button>
+    </fieldset>
+  </div>
 
-  <!--<input [(ngModel)] = 'email'-->
-         <!--placeholder='Email'-->
-         <!--class='form-control'/>-->
-
-  <button (click)="register(username,password,cpassword)" class="btn btn-primary btn-block">Register</button>
-
-  <a routerLink="/login">Login</a>
-  <a routerLink="/home">Home</a>
+  <!--<a routerLink="/login">Login</a>-->
+  <!--<a routerLink="/home">Home</a>-->
 
 </div>

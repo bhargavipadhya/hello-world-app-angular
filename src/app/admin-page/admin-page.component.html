@@ -1,0 +1,13 @@
+<div class='container-fluid'>
+
+
+  <input placeholder='Enter Section Name'
+         [(ngModel)]="sectionName"
+         class="form-control"/><br/>
+
+  <input placeholder='Seats Available'
+         [(ngModel)]="seats"
+         class="form-control"/><br/>
+
+  <button class="btn btn-success btn-block" (click)="createSection(seats, sectionName)">Add Section</button>
+</div>

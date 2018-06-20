@@ -1,34 +1,71 @@
 <div class='container-fluid'>
-  <h1>Profile</h1>
 
-  <input [(ngModel)] = 'username'
-         placeholder='username'
-         class='form-control'/>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="navbar fixed-top navbar-light bg-light">
+      <a class="navbar-brand" routerLink="/home"><b>White Board</b></a>
+      <ul class="navbar-nav float-right">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/home">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link wbdv-hover" (click)="logout()">Logout</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
 
-  <input [(ngModel)] = 'firstName'
-         placeholder='First Name'
-         class='form-control'/>
+<div class="row container-fluid">
+  <div class="wbdv-topMargin col-6">
+    <fieldset>
+      <legend>Profile</legend>
+        <input [(ngModel)] = 'user.username'
+               placeholder='username'
+               class='form-control'/><br/>
 
-  <input [(ngModel)] = 'lastName'
-         placeholder='Last Name'
-         class='form-control'/>
+      <input [(ngModel)] = 'user.password'
+             placeholder='Password'
+             class='form-control'
+             type='password'/><br/>
 
-  <input [(ngModel)] = 'email'
-         placeholder='Email'
-         class='form-control'/>
+        <input [(ngModel)] = 'user.firstName'
+               placeholder='First Name'
+               class='form-control'/><br/>
 
-  <button (click)="update()"  class="btn btn-primary btn-block">Update</button>
+        <input [(ngModel)] = 'user.lastName'
+               placeholder='Last Name'
+               class='form-control'/><br/>
 
-  <h2>Sections [{{sections.length}}]</h2>
+        <input [(ngModel)] = 'user.email'
+               placeholder='Email'
+               class='form-control'/><br/>
 
-  <ul class="list-group">
-    <li *ngFor="let enrollment of sections" class="list-group-item">
-      {{enrollment.section.sectionName}} [Seats Available: {{enrollment.section.seats}}]
-      <!--{{enrollment.sectionName}} [Seats Available: {{enrollment.seats}}]-->
-    </li>
-  </ul>
+      <input [(ngModel)] = 'user.phone'
+             placeholder='Phone Number'
+             class='form-control'/><br/>
 
-  <a (click)="logout()">Logout</a>
-  <a routerLink="/home">Home</a>
+      <input [(ngModel)] = 'user.address'
+             placeholder='Address'
+             class='form-control'/><br/>
+
+        <button (click)="updateUser()"  class="btn btn-primary btn-block">Update</button>
+      <a routerLink="/admin-page" *ngIf="user.username==='admin' && user.password === 'admin'" style="text-decoration: none">Admin Page</a>
+    </fieldset>
+  </div>
+
+
+  <div class="col-6 wbdv-topMargin-Section">
+    <h2> [{{sections.length}}] Sections you are enrolled in: </h2>
+
+    <ul class="list-group">
+      <li *ngFor="let enrollment of sections" class="list-group-item">
+        {{enrollment.section.sectionName}} [Seats Available: {{enrollment.section.seats}}]
+        <button (click)="disenroll(enrollment)"  class="btn btn-outline-success float-right">Disenroll</button>
+      </li>
+    </ul>
+  </div>
+</div>
+
+  <!--<a (click)="logout()">Logout</a>-->
+  <!--<a routerLink="/home">Home</a>-->
 
 </div>

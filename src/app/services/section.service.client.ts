@@ -35,4 +35,11 @@ export class SectionServiceClient{
     });
   }
 
+  disenrollStudent(sectionId){
+    return fetch('http://localhost:3000/api/student/section/SID'.replace("SID",sectionId),{
+      method:'delete',
+      credentials:'include'
+    })
+  }
+
 }

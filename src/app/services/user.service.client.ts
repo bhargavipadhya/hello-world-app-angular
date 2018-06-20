@@ -17,7 +17,7 @@ export class UserServiceClient{
     const credentials = {
       username: username,
         password: password
-    }
+    };
     return fetch('http://localhost:3000/api/login', {
       credentials: 'include',
       body: JSON.stringify(credentials),
@@ -40,6 +40,25 @@ export class UserServiceClient{
 
   findUserById(userId){
     return fetch('http://localhost:3000/api/user' + '/' + userId, {credentials: 'include'})
+      .then(response => response.json());
+  }
+
+  findCurrentUser(){
+    return fetch('http://localhost:3000/api/profile',{
+      credentials:'include',
+    })
+      .then(response => response.json());
+  }
+
+  updateUser(user){
+    return fetch('http://localhost:3000/api/profile', {
+      credentials: 'include',
+      method: 'put',
+      body:JSON.stringify(user),
+      headers:{
+        'content-type':'application/json'
+      }
+    })
       .then(response => response.json());
   }
 
